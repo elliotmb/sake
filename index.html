@@ -1,0 +1,129 @@
+    <!DOCTYPE html>
+    <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+		
+
+        <style>
+        .panel {
+            position: fixed;
+            left: -15.625em; /*left or right and the width of your navigation panel*/
+            width: 15.625em; /*should match the above value*/
+        }
+        </style>
+		<script src='js/sake.js' type="Script"></script>
+		<script src='js/custProto.js' type="Script"></script>
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+
+        <div id="content">
+
+            <script type="text/javascript">
+
+
+</script> 
+    <div style="display:none"> 
+        <video id="theVideo" autoplay="true" loop="true"> 
+           <source src="spaceeggs.ogg" type="video/ogg"/> 
+        </video> 
+
+    </div> 
+
+    <div style="position: absolute; top: 20px; left: 50px; ">
+        <canvas id="canvasOne" width="1285" height="655">
+           Your browser does not support the HTML 5 Canvas. 
+       </canvas>
+       <form style="margin-top: 80px;">
+          Text: <input id="textBox" placeholder="your text" />
+          <br>
+          Text Size: <input type="range" id="textSize"
+          min="0"
+          max="200"
+          step="1"
+          value="120"/> 
+          <br>
+
+          Canvas Width:  <input type="range" id="canvasWidth"
+          min="100"
+          max="1400"
+          step="1"
+          value="1285"/>
+          <br>      
+
+          Canvas Height:
+          <input type="range" id="canvasHeight"
+          min="0"
+          max="1000"
+          step="1"
+          value="655"/>
+      </form>
+      </div>
+
+
+      <ul id="menu">
+        <li>
+            <a href="#modal" class="sider" id="special">Test1</a>
+        </li>
+        <li>
+            <a href="#modal2" class="sider regular">Test2</a>
+        </li>
+        <li>
+            <a href="#modal3" class="sider regular">Test3</a>
+        </li>   
+    </ul>
+    <div id="modal" class="mod">
+    </div>
+    <div id="modal2" class="mod">
+        <p><a href="javascript:$.pageslide.close()">Close</a></p>
+        <h2>Test Box 2</h2>
+        <p>Lorem ipsum dolor sit amet, nec munere noster elaboraret no, epicurei postulant sea ut, cum audiam fabellas indoctum eu. Aliquid fabellas splendide qui cu, option laoreet adipiscing cum cu. Tamquam mediocrem eam id. Animal sadipscing eu vim.
+
+                      Posse deterruisset ea mea. Vis mollis ornatus fierent no, agam quaeque sea no, diam inermis vim ea. Quod aeterno instructior te per, graeci interpretaris ei est. Consul maluisset mea ex, indoc</p>
+
+    </div>
+    <div id="modal3" class="mod">
+        <p><a href="javascript:$.pageslide.close()">Close</a></p>
+        <h2>Test Box 3</h2>
+        <p>Lorem ipsum dolor sit amet, nec munere noster elaboraret no, epicurei postulant sea ut, cum audiam fabellas indoctum eu. Aliquid fabellas splendide qui cu, option laoreet adipiscing cum cu. Tamquam mediocrem eam id. Animal sadipscing eu vim.
+
+                      Posse deterruisset ea mea. Vis mollis ornatus fierent no, agam quaeque sea no, diam inermis vim ea. Quod aeterno instructior te per, graeci interpretaris ei est. Consul maluisset mea ex, indoc</p>
+    </div>
+</div>
+
+<script src="js/vendor/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+$("#special").pageslide({href:'temp.html' });
+$(".regular").pageslide();
+$('.rsh').draggable({
+    axis: 'y'
+    ,containment: 'parent'
+    ,helper: 'clone'
+    , start: function(event, ui) { 
+        $(this).attr('start_offset',$(this).offset().top);
+        $(this).attr('start_next_height',$(this).next().height());
+    }
+    ,drag: function (event, ui) {           
+        var prev_element=$(this).prev();
+        var next_element=$(this).next();
+        var y_difference=$(this).attr('start_offset')-ui.offset.top;            
+        prev_element.height(ui.offset.top-prev_element.offset().top);
+        next_element.height(parseInt($(this).attr('start_next_height'))+y_difference);
+    } 
+});
+</script>
+</body>
+</html>
